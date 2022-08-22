@@ -46,7 +46,7 @@ def get_shi():
   shi=requests.get("https://v2.jinrishici.com/one.json")
   if shi.status_code!=200:
     return get_shi()
-  return shi.json()['date']['content']
+  return shi.json()['data']['content']
 
 
 def get_random_color():
