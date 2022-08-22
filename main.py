@@ -42,7 +42,7 @@ def get_birthday():
   return "距离大宝贝的生日还有"+str((next - today).days)+"天"
 
 def get_sr():
-  next = datetime.strptime(str(date.today().year) + "-" + sr, "%Y-%m-%d")
+  next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return "距离大宝贝的生日还有"+str((next - today).days)+"天"
