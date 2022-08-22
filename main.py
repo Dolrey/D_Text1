@@ -16,7 +16,7 @@ t_today = str(date.today())+' '+week
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
-
+sr = os.environ["SR"]
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
@@ -42,7 +42,7 @@ def get_birthday():
   return "距离小宝贝的生日还有"+str((next - today).days)+"天"
 
 def get_sr():
-  next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
+  next = datetime.strptime(str(date.today().year) + "-" + sr, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return "距离大宝贝的生日还有"+str((next - today).days)+"天"
