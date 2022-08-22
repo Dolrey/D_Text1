@@ -6,8 +6,13 @@ import requests
 import os
 import random
 
+
+week_list = ["星期一","星期二","星期三","星期四","星期五","星期六","星期日"]
+
 today = datetime.now()
-t_today = str(date.today())
+week=week_list[today.weekday]
+t_today = str(date.today())+' '+week
+
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
