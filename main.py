@@ -16,7 +16,7 @@ t_today = str(date.today())+' '+week
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
-bigbirthday= os.environ['BIGBIRTHDAY']
+
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
@@ -41,12 +41,6 @@ def get_birthday():
     next = next.replace(year=next.year + 1)
   return "距离小宝贝的生日还有"+str((next - today).days)+"天"
  
- def get_bigbirthday():
-  next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
-  if next < datetime.now():
-    next = next.replace(year=next.year + 1)
-  return "距离大宝贝的生日还有"+str((next - today).days)+"天"
-
 
 
 def get_words():
@@ -79,7 +73,8 @@ data = {"t_today":{"value":t_today,"color":get_random_color()},
         "love_days":{"value":get_count(),"color":get_random_color()},
         "birthday_left":{"value":get_birthday(),"color":get_random_color()},
         "words":{"value":get_words(), "color":get_random_color()},
-        "shi":{"value":get_shi(), "color":get_random_color()},
-        "bigbirthday_left":{"value":get_bigbirthday(),"color":get_random_color()}}
+        "shi":{"value":get_shi(), "color":get_random_color()}}
+      
 res = wm.send_template(user_id, template_id, data)
 print(res)
+
